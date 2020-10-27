@@ -29,25 +29,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+	<style name="Table_CH" mode="Opaque" backcolor="#020EF0">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -65,6 +47,37 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#020EF0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="StyleTextfield" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{producto} == "DDA"]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#9CCCFF" pdfEncoding="">
+				<pen lineWidth="1.0"/>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{producto} == "TDC"]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#C2E0FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="StyleLabelHeader" forecolor="#FFFFFF" fontSize="12" isBold="true"/>
 	<subDataset name="DatasetTarjeta" uuid="2cad4b0b-76ad-4773-9bc6-e2310f8a4e7b">
 		<parameter name="ds" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 		<queryString>
@@ -114,8 +127,8 @@
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement x="80" y="0" width="100" height="30" forecolor="#000BDE" uuid="9a1cb47a-8d14-4350-baf4-733bc52cad7b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tarjetas]]></text>
 			</staticText>
@@ -134,7 +147,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="8edd7ce6-0fd8-448f-bb77-7ab4cce965e3"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="8edd7ce6-0fd8-448f-bb77-7ab4cce965e3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -143,7 +156,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="fba8b589-bed0-487a-b8fa-318649bd8ea8"/>
+								<reportElement key="" style="StyleTextfield" x="0" y="0" width="100" height="30" uuid="fba8b589-bed0-487a-b8fa-318649bd8ea8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
 							</textField>
@@ -153,7 +166,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="bd0d2fcf-c7f7-48d0-9632-f11bf4374457"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="bd0d2fcf-c7f7-48d0-9632-f11bf4374457"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -162,7 +175,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="57766c39-7929-4dd6-a372-9b61adcb18b7"/>
+								<reportElement style="StyleTextfield" x="0" y="0" width="100" height="30" uuid="57766c39-7929-4dd6-a372-9b61adcb18b7"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
 							</textField>
@@ -172,7 +185,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="cbe94342-b526-4df7-88a2-4b152c2e4cf5"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="cbe94342-b526-4df7-88a2-4b152c2e4cf5"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -181,7 +194,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="c6eaf6bb-ea72-46e3-910a-88949a34fa62"/>
+								<reportElement style="StyleTextfield" x="0" y="0" width="100" height="30" uuid="c6eaf6bb-ea72-46e3-910a-88949a34fa62"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
 							</textField>
@@ -191,7 +204,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="50f69a51-4c74-4d6f-9e4c-773801efc145"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="50f69a51-4c74-4d6f-9e4c-773801efc145"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -200,7 +213,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="0c93556a-46c7-4ae5-84bf-9e7689a1efae"/>
+								<reportElement style="StyleTextfield" x="0" y="0" width="100" height="30" uuid="0c93556a-46c7-4ae5-84bf-9e7689a1efae"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
 							</textField>
@@ -210,7 +223,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="03ba942a-6b56-48d1-819d-aab427a643e1"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="03ba942a-6b56-48d1-819d-aab427a643e1"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -219,7 +232,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="e4dba72b-0574-4f8f-918e-fbc65445a63c"/>
+								<reportElement style="StyleTextfield" x="0" y="0" width="100" height="30" uuid="e4dba72b-0574-4f8f-918e-fbc65445a63c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{comprobante}]]></textFieldExpression>
 							</textField>
@@ -232,8 +245,8 @@
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement x="80" y="0" width="100" height="30" forecolor="#000BDE" uuid="dcbaa57d-356b-48bd-92c1-a4bdb9011b43"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cuentas]]></text>
 			</staticText>
@@ -252,7 +265,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="2199c3ee-9623-48f3-bdd5-66d708d60412"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="2199c3ee-9623-48f3-bdd5-66d708d60412"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -271,7 +284,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="9250ef8a-7ea9-47c0-a514-753c79c5fd35"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="9250ef8a-7ea9-47c0-a514-753c79c5fd35"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -290,7 +303,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="6335fbff-5a0c-4547-97d2-3dbe601e4ca0"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="6335fbff-5a0c-4547-97d2-3dbe601e4ca0"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -309,7 +322,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
 						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="58605186-aac1-4ce7-a93b-a15057d312b1"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="58605186-aac1-4ce7-a93b-a15057d312b1"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
@@ -328,7 +341,7 @@
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="4d54c1a2-b3a2-4854-aa3f-4996d3e74613"/>
+								<reportElement style="StyleLabelHeader" x="0" y="0" width="100" height="30" uuid="4d54c1a2-b3a2-4854-aa3f-4996d3e74613"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font isBold="true"/>
 								</textElement>
